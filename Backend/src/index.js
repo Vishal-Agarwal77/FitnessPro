@@ -6,7 +6,7 @@ dotenv.config({
     path: './.env'
 })
 
-const port=4000
+const port=10000
 
 connectToDb()
     .then(() => {
