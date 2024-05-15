@@ -34,8 +34,8 @@ export default function Login() {
     if (response.status === 200) {
       // console.log("LoggedIn  Succesfully")'
       console.log(FormData);
-      Cookies.set('AccessToken', response.data.data.accessToken)
-      Cookies.set('RefreshToken', response.data.data.refreshToken)
+      Cookies.set('AccessToken', response?.data?.data?.accessToken)
+      Cookies.set('RefreshToken', response?.data?.data?.refreshToken)
       navigate('/User/home');
       // console.log("Access Token : "+response?.data?.data?.accessToken)
       // console.log("Refresh Token : "+response?.data?.data?.refreshToken)
