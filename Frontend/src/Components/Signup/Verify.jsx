@@ -4,9 +4,9 @@ import Snackbar from '@mui/material/Snackbar';
 import Slide from '@mui/material/Slide';
 import dotenv from "dotenv"
 
-dotenv.config({
-    path: '../../../.env'
-  })
+// dotenv.config({
+//     path: '../../../.env'
+//   })
   
 
 
@@ -37,8 +37,7 @@ export default function Verify() {
     })
     const handleSubmit = async (e) => {
         e.preventDefault()
-
-        const response = await axios.post(`${process.env.BACKEND_DOMAIN}/api/v1/verify`, FormData)
+        const response = await axios.post(`${import.meta.env.VITE_BACKEND_DOMAIN}/api/v1/verify`, FormData)
         if (response.status === 200) {
             setContent("OTP Verified Successfully")
             setState({ ...State, open: true });

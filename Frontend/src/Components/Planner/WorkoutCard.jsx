@@ -3,9 +3,9 @@ import React, { useState } from 'react'
 import Cookies from 'js-cookie';
 import dotenv from "dotenv"
 
-dotenv.config({
-  path: '../../../.env'
-})
+// dotenv.config({
+//   path: '../../../.env'
+// })
 
 export default function WorkoutCard({ item }) {
   const [Count, setCount] = useState(3);
@@ -42,7 +42,7 @@ export default function WorkoutCard({ item }) {
       action: Status
     }
     // console.log(Data)
-    const response = await axios.post(`${process.env.BACKEND_DOMAIN}/api/v1/create`, Data, {
+    const response = await axios.post(`${import.meta.env.VITE_BACKEND_DOMAIN}/api/v1/create`, Data, {
       withCredentials: true
     })
     if (response.status === 201) {

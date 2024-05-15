@@ -3,9 +3,9 @@ import React, { useEffect, useState } from 'react'
 import Cookies from 'js-cookie';
 import dotenv from "dotenv"
 
-dotenv.config({
-    path: '../../../.env'
-  })
+// dotenv.config({
+//     path: '../../../.env'
+//   })
   
 
 export default function Profile() {
@@ -13,7 +13,7 @@ export default function Profile() {
     const getData = async () => {
         try {
             const accessToken=Cookies.get("AccessToken")
-            const response = await axios.post(`${process.env.BACKEND_DOMAIN}/api/v1/getUser`,{accessToken},{
+            const response = await axios.post(`${import.meta.env.VITE_BACKEND_DOMAIN}/api/v1/getUser`,{accessToken},{
                 withCredentials: true
             });
             if (response.status === 200) {
