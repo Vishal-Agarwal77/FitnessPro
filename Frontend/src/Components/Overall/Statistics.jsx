@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Total from './Statistics/Total'
 import axios from 'axios'
 import Cookies from 'js-cookie'
-import dotenv from dotenv
+import dotenv from "dotenv"
 
 dotenv.config({
     path: '../../../.env'

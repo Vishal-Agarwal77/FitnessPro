@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import PastRecord from './PastRecord/PastRecord';
 import axios from 'axios';
 import Cookies from 'js-cookie'
-import dotenv from dotenv
+import dotenv from "dotenv"
 
 dotenv.config({
     path: '../../../.env'

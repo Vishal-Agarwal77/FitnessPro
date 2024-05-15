@@ -2,7 +2,7 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Snackbar from '@mui/material/Snackbar';
 import Slide from '@mui/material/Slide';
-import dotenv from dotenv
+import dotenv from "dotenv"
 
 dotenv.config({
     path: '../../../.env'
