@@ -29,7 +29,7 @@ export default function Planner() {
         </div>
         <p className='flex-none px-6 py-1 rounded-full bg-[#0446F3] text-white text-lg cursor-pointer shadow-[15px_15px_20px_-5px_rgba(220,234,245,1)]'>Filter</p>
       </div>
-      <div className='flex px-6 py-6 justify-between gap-x-4 flex-wrap gap-y-5'>
+      <div className='flex px-6 py-6 justify-between gap-x-4 flex-wrap gap-y-5 max-[675px]:justify-center'>
         {Data &&
           Data.map((item) => {
             return <WorkoutCard item={item} key={item.Name} />

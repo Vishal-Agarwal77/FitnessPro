@@ -31,7 +31,7 @@ export default function Current() {
     getdata()
   }, [])
   return (
-    <div className='flex px-6 py-6 justify-between gap-x-4 flex-wrap gap-y-5 w-[98.7vw]'>
+    <div className='flex px-6 py-6 justify-between gap-x-4 flex-wrap gap-y-5 w-[98.7vw] max-[675px]:justify-center'>
       {Data
         ?
         Data.map((item) => {
