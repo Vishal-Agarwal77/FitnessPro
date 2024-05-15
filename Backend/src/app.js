@@ -9,7 +9,7 @@ app.use(cookieParser())
 
 app.use(cors({
     credentials: true,
-    origin: "https://fitnesspro77.netlify.app"
+    origin: "https://fitnesspro-1.onrender.com"
 }))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
