@@ -27,6 +27,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // let data = {...FormData};
+    console.log(import.meta.env.VITE_BACKEND_DOMAIN)
     const response = await axios.post(`${import.meta.env.VITE_BACKEND_DOMAIN}/api/v1/login`, FormData, {
       withCredentials: true
     })
