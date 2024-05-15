@@ -2,6 +2,13 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import Snackbar from '@mui/material/Snackbar';
 import Slide from '@mui/material/Slide';
+import dotenv from dotenv
+
+dotenv.config({
+    path: '../../../.env'
+  })
+  
+
 
 function SlideTransition(props) {
     return <Slide {...props} direction="down" />;
@@ -31,7 +38,7 @@ export default function Verify() {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const response = await axios.post('http://localhost:3000/api/v1/verify', FormData)
+        const response = await axios.post(`${process.env.BACKEND_DOMAIN}/api/v1/verify`, FormData)
         if (response.status === 200) {
             setContent("OTP Verified Successfully")
             setState({ ...State, open: true });

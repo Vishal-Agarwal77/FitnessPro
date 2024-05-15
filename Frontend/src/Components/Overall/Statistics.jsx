@@ -2,13 +2,18 @@ import React, { useEffect, useState } from 'react'
 import Total from './Statistics/Total'
 import axios from 'axios'
 import Cookies from 'js-cookie'
+import dotenv from dotenv
+
+dotenv.config({
+    path: '../../../.env'
+})
 
 export default function Statistics() {
     const [Data, setData] = useState('')
     const getData = async () => {
         try {
             const accessToken=Cookies.get("AccessToken")
-            const response = await axios.post("http://localhost:3000/api/v1/getCurrentWorkout", {accessToken}, {
+            const response = await axios.post(`${process.env.BACKEND_DOMAIN}/api/v1/getCurrentWorkout`, {accessToken}, {
                 withCredentials: true
             })
             console.log(response);

@@ -10,7 +10,6 @@ const port=10000
 
 connectToDb()
     .then(() => {
-        
         app.listen(port, () => {
             console.log(`Server is live at ${port}`)
         })

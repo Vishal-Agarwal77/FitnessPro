@@ -3,6 +3,11 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie'
 
+dotenv.config({
+  path: '../../../.env'
+})
+
+
 export default function Login() {
   const navigate = useNavigate();
   const [FormData, setFormData] = useState({
@@ -21,7 +26,7 @@ export default function Login() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // let data = {...FormData};
-    const response = await axios.post("http://localhost:3000/api/v1/login", FormData, {
+    const response = await axios.post(`${process.env.BACKEND_DOMAIN}/api/v1/login`, FormData, {
       withCredentials: true
     })
     console.log(response);

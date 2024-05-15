@@ -1,6 +1,12 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import dotenv from dotenv
+
+dotenv.config({
+    path: '../../../.env'
+  })
+  
 
 export default function Signup() {
     const navigate = useNavigate();
@@ -29,7 +35,7 @@ export default function Signup() {
             form.append(key,formData[key])
         }
         console.log(form)
-        const response = await axios.post("http://localhost:3000/api/v1/register", form)
+        const response = await axios.post(`${process.env.BACKEND_DOMAIN}/api/v1/register`, form)
         console.log(response);
         if (response.status === 201) {
             navigate("verify");

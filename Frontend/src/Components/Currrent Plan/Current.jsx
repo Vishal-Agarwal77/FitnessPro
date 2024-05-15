@@ -3,13 +3,19 @@ import Card from './Card/Card';
 import axios from 'axios';
 import No_plan from '../../../../Assests/No_plan.png'
 import Cookies from 'js-cookie';
+import dotenv from 'dotenv'
+
+dotenv.config({
+  path: '../../../.env'
+})
+
 
 export default function Current() {
   const [Data, setData] = useState();
   const getdata = async () => {
     try {
       const accessToken=Cookies.get("AccessToken")
-      const response = await axios.post("http://localhost:3000/api/v1/getCurrentWorkout", {accessToken}, {
+      const response = await axios.post(`${process.env.BACKEND_DOMAIN}/api/v1/getCurrentWorkout`, {accessToken}, {
         withCredentials: true
       })
       console.log(response);

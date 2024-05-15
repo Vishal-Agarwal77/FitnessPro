@@ -1,11 +1,16 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import WorkoutCard from './WorkoutCard';
+import dotenv from dotenv
+
+dotenv.config({
+  path: '../../../.env'
+})
 
 export default function Planner() {
   const [Data, setData] = useState();
   const getWorkout = async () => {
-    const response = await axios.get("http://localhost:3000/api/v1/getWorkouts")
+    const response = await axios.get(`${process.env.BACKEND_DOMAIN}/api/v1/getWorkouts`)
     if (response.status === 200) {
       // console.log(response)
       setData(response.data)

@@ -1,6 +1,12 @@
 import axios from 'axios'
 import React, { useState } from 'react'
 import Cookies from 'js-cookie'
+import dotenv from 'dotenv'
+
+dotenv.config({
+    path: '../../../../.env'
+  })
+  
 
 export default function Card({ item }) {
     const [Star, setStar] = useState();
@@ -17,7 +23,7 @@ export default function Card({ item }) {
                         Time_taken: Timetaken
                     }
                 }
-                const response = await axios.post("http://localhost:3000/api/v1/doneWorkout", data, {
+                const response = await axios.post(`${process.env.BACKEND_DOMAIN}/api/v1/doneWorkout`, data, {
                     withCredentials: true
                 })
                 if (response.status === 200) {
