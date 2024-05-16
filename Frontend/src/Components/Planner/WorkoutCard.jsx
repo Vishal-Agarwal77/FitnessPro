@@ -14,7 +14,9 @@ export default function WorkoutCard({ item }) {
   const handleCount = (type, action) => {
     if (type === "Sets") {
       if (action === "-") {
-        setCount(Count - 1)
+        if(Count>=2){
+          setCount(Count - 1)
+        }
       }
       else {
         setCount(Count + 1)
@@ -22,7 +24,9 @@ export default function WorkoutCard({ item }) {
     }
     else {
       if (action === "-") {
-        setReps(Reps - 1)
+        if(Reps>=2){
+          setReps(Reps - 1)
+        }
       }
       else {
         setReps(Reps + 1)
