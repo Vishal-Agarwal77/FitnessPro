@@ -47,7 +47,7 @@ export default function Card({ item }) {
     return (
         <div className='w-[300px] rounded-xl bg-[#EEEEFB] flex flex-col items-center py-3 bg-white shadow-[15px_15px_20px_-5px_rgba(220,234,245,1)]'>
             <div className='h-3/5 w-full'>
-                <img src={item.image_url} className='h-[100%] m-auto' />
+                <img src={item.image_url} className='h-[100%] m-auto' alt={item.Name} width={300} height={300}/>
             </div>
             <div className='min-h-2/5 w-fit flex flex-col gap-y-3 items-center'>
                 <p className='text-2xl font-semibold'>{item.Name}</p>
