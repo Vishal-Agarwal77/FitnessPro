@@ -43,12 +43,12 @@ export default function Login() {
   }
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // const response = await axios.post(`${import.meta.env.VITE_BACKEND_DOMAIN}/api/v1/login`, FormData, {
-    //   withCredentials: true
-    // })
-    const response = await axios.post(`http://localhost:10000/api/v1/login`, FormData, {
+    const response = await axios.post(`${import.meta.env.VITE_BACKEND_DOMAIN}/api/v1/login`, FormData, {
       withCredentials: true
     })
+    // const response = await axios.post(`http://localhost:10000/api/v1/login`, FormData, {
+    //   withCredentials: true
+    // })
     console.log(response);
     if (response.status === 200) {
       Cookies.set('AccessToken', response?.data?.data?.accessToken)
