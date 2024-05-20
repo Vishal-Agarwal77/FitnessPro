@@ -69,7 +69,7 @@ export default function Verify() {
                 <form className='flex flex-col gap-y-6' onSubmit={handleSubmit}>
                     <label htmlFor='otp' className='text-lg text-gray-800'>OTP</label>
                     <input type='number' name='otp' className='px-2 py-[2px] border-[1px] border-gray-400 rounded-md text-lg test-gray-800' value={FormData.otp} onChange={(e) => { setFormData({ ...FormData, otp: e.target.value }) }} />
-                    <button type='submit' className='bg-[#64B5F6] w-fit mx-auto px-4 py-1 text-lg text-white rounded-md mt-12'>Submit</button>
+                    <button type='submit' className='bg-[#0446F3] w-fit mx-auto px-4 py-1 text-lg text-white rounded-md mt-12'>Submit</button>
                 </form>
             </div>
         </>
