@@ -150,7 +150,16 @@ const loginUser = async (req, res) => {
         const existingUser = await User.findOne({ email: `${email}` })
 
         if (!existingUser) {
-            throw new ApiError(404, "User not found")
+            return res
+            .status(210)
+            .json(
+                new ApiResponse(
+                    210,
+                    {
+                    },
+                    'User Not Found'
+                )
+            )
         }
 
         //Check if the email is Verified
@@ -412,8 +421,6 @@ const completedWorkout = async (req, res) => {
 const getUserProfile = async (req, res) => {
     try {
         //Get the Details
-        // console.log(req.cookies["AccessToken"]);
-        // const accesstoken = req.cookies["AccessToken"]
         const {accessToken}=req.body
 
         if (!accessToken) {
