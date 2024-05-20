@@ -4,8 +4,7 @@ const plan = new mongoose.Schema(
     {
         Name: {
             type: String,
-            required: true,
-            unique: true
+            required: true
         },
         Reps: {
             type: Number,

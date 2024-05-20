@@ -251,19 +251,17 @@ const createWorkout = async (req, response) => {
                     Plan: []
                 })
             }
-            if (existedUser.Plan) {
-                let found = false
-                for (let el of existedUser.Plan) {
-                    if (el.date === res) {
-                        found = true
-                    }
+            let found = false
+            for (let el of existedUser.Plan) {
+                if (el.date === res) {
+                    found = true
                 }
-                if (!found) {
-                    existedUser.Plan.push({
-                        date: res,
-                        workout: []
-                    })
-                }
+            }
+            if (!found) {
+                existedUser.Plan.push({
+                    date: res,
+                    workout: []
+                })
             }
             let size = existedUser.Plan.length - 1
             existedUser.Plan[size].workout.push(plan);
