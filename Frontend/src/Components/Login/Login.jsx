@@ -24,7 +24,7 @@ function MsgContent(success, msg) {
 export default function Login() {
   const [Content, setContent] = useState("User Not Found");
   const [State, setState] = useState({
-    open: true,
+    open: false,
     Transition: SlideTransition
   })
   const navigate = useNavigate();
@@ -71,7 +71,7 @@ export default function Login() {
         }}
         autoHideDuration={2000}
         onClose={handleClose}
-        message={MsgContent(true, Content)}
+        message={MsgContent(false, Content)}
       />
       <div className='flex flex-col gap-y-6 px-4'>
         <form className='flex flex-col gap-y-6' onSubmit={handleSubmit}>
