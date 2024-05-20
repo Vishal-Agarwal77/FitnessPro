@@ -15,7 +15,6 @@ function SlideTransition(props) {
 }
 
 function MsgContent(success,msg){
-    console.log(msg);
     return( 
     <div className='flex gap-x-2 flex items-center justify-center px-2 '>
         {success
