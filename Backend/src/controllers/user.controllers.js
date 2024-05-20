@@ -151,15 +151,15 @@ const loginUser = async (req, res) => {
 
         if (!existingUser) {
             return res
-            .status(210)
-            .json(
-                new ApiResponse(
-                    210,
-                    {
-                    },
-                    'User Not Found'
+                .status(210)
+                .json(
+                    new ApiResponse(
+                        210,
+                        {
+                        },
+                        'User Not Found'
+                    )
                 )
-            )
         }
 
         //Check if the email is Verified
@@ -218,7 +218,7 @@ const getAllWorkouts = async (req, res) => {
 const createWorkout = async (req, response) => {
     try {
         //Get the details
-        const {accessToken, plan, action } = req.body;
+        const { accessToken, plan, action } = req.body;
 
         // if(!accessToken){
         //     accesstoken = req.cookies["AccessToken"]
@@ -295,7 +295,7 @@ const createWorkout = async (req, response) => {
 const currentWorkout = async (req, response) => {
     try {
         //Get the Details
-        const { accessToken,action, planName } = req.body
+        const { accessToken, action, planName } = req.body
 
         // const accesstoken = req.cookies["AccessToken"]
 
@@ -370,7 +370,7 @@ const currentWorkout = async (req, response) => {
 const completedWorkout = async (req, res) => {
     try {
         //Get the details
-        const {accessToken, plan } = req.body
+        const { accessToken, plan } = req.body
 
         // const accesstoken = req.cookies["AccessToken"]
 
@@ -421,7 +421,7 @@ const completedWorkout = async (req, res) => {
 const getUserProfile = async (req, res) => {
     try {
         //Get the Details
-        const {accessToken}=req.body
+        const { accessToken } = req.body
 
         if (!accessToken) {
             throw new ApiError(400, "User is Required");
@@ -474,6 +474,17 @@ const getRecord = async (req, res) => {
         let existedUser = await WorkoutPlan.findOne({ User: `${userId}` })
 
         if (!existedUser) {
+            for (let i = 1; i <= 7; i++) {
+                let date = new Date(Date.now() - (24 * 60 * 60 * 1000 * i))
+                let d = '' + date.getDate();
+                let m = '' + date.getMonth();
+                let y = '' + date.getFullYear();
+                let res = ((d.length < 2) ? "0" + d : d) + ((m.length < 2) ? '0' + m : m) + ((y.length < 2) ? '0' + y : y)
+                obj.Calories.push(0)
+                obj.Minutes.push(0)
+                obj.Workout_Count.push(0)
+                obj.Date.push(res.slice(0, 2) + "-" + res.slice(2, 4) + "-" + res.slice(4, res.length))
+            }
             return res
                 .status(200)
                 .json(
@@ -514,7 +525,7 @@ const getRecord = async (req, res) => {
             }
         }
 
-       
+
         return res
             .status(200)
             .json(
