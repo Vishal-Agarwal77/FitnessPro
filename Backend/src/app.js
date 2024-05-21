@@ -5,12 +5,14 @@ import router from "./routes/user.routes.js";
 
 const app = express();
 
-app.use(cors({
+const corsOptions = {
     credentials: true,
     origin: "https://fitnesspro-1.onrender.com",
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"]
-}))
+};
+
+app.use(cors(corsOptions))
 
 app.options('*',cors(corsOptions));
 
