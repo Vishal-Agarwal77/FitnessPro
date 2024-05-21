@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { upload } from '../middlewares/multer.middleware.js';
 import { VerifyUser, completedWorkout, createWorkout, currentWorkout, getAllWorkouts, getRecord, getUserProfile, loginUser, registerUser } from '../controllers/user.controllers.js';
+import accessControl from '../middlewares/AccessControl.middleware.js';
 
 const router = Router()
 
@@ -14,20 +15,20 @@ router.route('/register').post(
     registerUser
 );
 
-router.route('/verify').post(VerifyUser)
+router.route('/verify').post(accessControl,VerifyUser)
 
-router.route('/login').post(loginUser)
+router.route('/login').post(accessControl,loginUser)
 
-router.route('/getWorkouts').get(getAllWorkouts)
+router.route('/getWorkouts').get(accessControl,getAllWorkouts)
 
-router.route('/create').post(createWorkout)
+router.route('/create').post(accessControl,createWorkout)
 
-router.route('/getCurrentWorkout').post(currentWorkout)
+router.route('/getCurrentWorkout').post(accessControl,currentWorkout)
 
-router.route('/doneWorkout').post(completedWorkout)
+router.route('/doneWorkout').post(accessControl,completedWorkout)
 
-router.route('/getUser').post(getUserProfile)
+router.route('/getUser').post(accessControl,getUserProfile)
 
-router.route('/PastRecord').post(getRecord)
+router.route('/PastRecord').post(accessControl,getRecord)
 
 export default router;
